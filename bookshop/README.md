@@ -25,7 +25,7 @@ File or Folder | Purpose
 Learn more at https://cap.cloud.sap/docs/get-started/.
 
 ### Commands
-cds init bookshop
-cd bookshop
-cds add tiny-sample
-cds watchc
+- cds init bookshop
+- cd bookshop
+- cds add tiny-sample
+- cds watch
