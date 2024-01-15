@@ -28,4 +28,4 @@ Learn more at https://cap.cloud.sap/docs/get-started/.
 cds init bookshop
 cd bookshop
 cds add tiny-sample
-cds watch
+cds watchc
