@@ -19,5 +19,3 @@ annotate BookService.Book with @(
     }
 ) ;
 
-
-
