@@ -1,4 +1,4 @@
-//asynchronous behaviours
+/* //asynchronous behaviours
 const demoAsync = () => {
     console.log("Before waiting");
     setTimeout(() => {
@@ -7,21 +7,23 @@ const demoAsync = () => {
     console.log("After waiting");
 };
 
-demoAsync();
+demoAsync(); */
 
-const demoAsyncWithCallback = () => {
+/* const demoAsyncWithCallback = () => {
     console.log("Before waiting");
     setTimeout(() => {
         console.log("After waiting");       
     }, 5000);
 
 };
-demoAsyncWithCallback();
+demoAsyncWithCallback(); */
 
-const demoAsyncWithAnonymousCallback = () => {
+/* const demoAsyncWithAnonymousCallback = () => {
     console.log("Before waiting");
     setTimeout(function() {
         console.log("After waiting");        
     }, 5000);
 };
-demoAsyncWithAnonymousCallback();
+demoAsyncWithAnonymousCallback(); */
+
+/*with promise
