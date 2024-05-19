@@ -1,6 +1,4 @@
-//load express module
 const express = require('express');
-//create app
 const app = express();
 
 //just a vendor array
@@ -42,49 +40,47 @@ this.vendors = [{
 }
 ];
 
+//middle for static web content
+app.use("/",express.static("webapp/"));
 
 //the default response
 app.get('/',(request,response)=>{
     response.send('Sever says hello');
-})
-
-//api to get vendors
-app.get('/vendors',(request,response)=>{
-    console.log(this.vendors);
-    response.json(this.vendors);
-    console.log(__dirname);
 });
 
-/* //api to get the specific vendor
+//pass vendors
+app.get('/vendors',(request,response)=>{
+    response.json(this.vendors);
+});
+
+//api to get the specific vendor
 app.get('/vendors/:id',(request,response)=>{
     //response.send(request.params.id);
-    //const foundVendor = this.vendors.find(function(element){
+    const foundVendor = this.vendors.find(function(element){
         return element.id == request.params.id;
     });
-    //response.send(foundVendor); -- this has some problem needs to be checked later
-/*     typeof(foundVendor) !== undefined? response.send(foundVendor):response.send({
-    "Vendor not found "
-    }); 
-});*/
+    response.send(foundVendor);
+});
 
-//POST request
-//to do post request we need postman
-//also we need middleware
-//for now using the inbuilt middleware for express.js
-/* app.use(express.json());
+//post request
+app.use(express.json()); //todo
+app.post('vendors',(request,response)=>{
+    //const postRequestData = request.body;
+    //postRequestData.id = Math.floor(Math.random() * 100);
+    //response.json(postRequestData);
+});
 
-app.post("/vendors",(request,response)=>{
-    const postRequestData = request.body;
-    //response.send("hello");
-    postRequestData.id = Math.floor(Math.random() * 100);
-    response.json(postRequestData);
+//get webapp
+ app.get('/index.html',(request,response)=>{
+    //response.json(__dirname);
+    response.sendFile(__dirname+"/webapp/index.html");
+});
+
+/* We can't keep serving all files one by one - so we need to use middleware
+app.get('/index.html',(request,response)=>{
+    //response.json(__dirname);
+    response.sendFile(__dirname+"/webapp/index.html");
 }); */
 
-/* //add fiori app
-app.get("index.html",(request,response)=>{
-    console.log(__dirname);
-    response.sendFile(__dirname+'/webapp/index.html');//we need to pass absolute path
-}); */
 
-//app listening to the port
-app.listen(3000);
+app.listen(3001);
